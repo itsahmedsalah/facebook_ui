@@ -15,6 +15,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         actions: [
@@ -135,7 +136,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
               ),
             ),
             Divider(color: Colors.grey, thickness: 2),
-            Image.asset(messiPic),
+            postWidget(),
           ],
         ),
       ),
@@ -156,6 +157,61 @@ class _HomePageScreenState extends State<HomePageScreen> {
       alignment: Alignment.topLeft,
       margin: EdgeInsets.all(5),
       child: Image.asset(goatPNG),
+    ),
+  );
+
+  Widget postWidget() => Container(
+    width: double.infinity,
+
+    child: Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            children: [
+              CircleAvatar(backgroundImage: AssetImage(route2Pic), radius: 26),
+              SizedBox(width: 10),
+              Column(
+                children: [
+                  Text(
+                    "Route",
+                    style: hintTextStyle.copyWith(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Text("8h .", style: hintTextStyle.copyWith(fontSize: 12)),
+                      SvgPicture.asset(earthSVG),
+                    ],
+                  ),
+                ],
+              ),
+              Spacer(),
+              SvgPicture.asset(dotsSVG),
+            ],
+          ),
+        ),
+        SizedBox(height: 8),
+        Image.asset(routePic),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            children: [
+              SvgPicture.asset(heartSVG, height: 24, width: 24),
+              SizedBox(width: 8),
+              SvgPicture.asset(commentSVG, height: 24, width: 24),
+              SizedBox(width: 8),
+              SvgPicture.asset(sendSVG, height: 24, width: 24),
+              Spacer(),
+              SvgPicture.asset(bookMarkSVG, height: 24, width: 24),
+            ],
+          ),
+        ),
+
+      ],
     ),
   );
 }
